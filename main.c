@@ -1,4 +1,4 @@
-#include"datatypes.h"
+#include"headerfiles.h"
 
 UINT8 main()
 {
@@ -7,7 +7,7 @@ UINT8 main()
 	while(1);
 }
 
-void gsm_ready(void)
+extern void gsm_ready(void)
 {
 send(strlen(commands[0]));
 }

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\UART_MAIN" 
+PRINT(".\Listings\UART_MAIN.m51")
