@@ -5,6 +5,7 @@ UINT8 main()
 	uart_init();
 	gsm_ready();
 	while(1);
+	return 0;
 }
 
 extern void gsm_ready(void)
