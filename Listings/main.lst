@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              10/18/2020 17:34:51 PAGE 1   
+C51 COMPILER V9.59.0.0   MAIN                                                              10/18/2020 18:04:55 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
@@ -9,17 +9,6 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE 
 line level    source
 
    1          #include"headerfiles.h"
-*** ERROR C231 IN LINE 1 OF register_names.h: 'uart_reg': redefinition
-*** ERROR C231 IN LINE 2 OF register_names.h: 'buffer': redefinition
-*** ERROR C231 IN LINE 3 OF register_names.h: 'timer_reg': redefinition
-*** ERROR C231 IN LINE 4 OF register_names.h: 'timer_data_reg': redefinition
-*** ERROR C231 IN LINE 5 OF register_names.h: 'timer_on_off': redefinition
-*** ERROR C231 IN LINE 6 OF register_names.h: 'transmit_interrupt_uart': redefinition
-*** ERROR C231 IN LINE 7 OF register_names.h: 'receive_interrupt_uart': redefinition
-*** ERROR C279 IN LINE 1 OF global_data.h: 'commands': multiple initialization
-*** ERROR C279 IN LINE 2 OF global_data.h: 'ENTER': multiple initialization
-*** ERROR C279 IN LINE 3 OF global_data.h: 'DATA_SEND': multiple initialization
-*** ERROR C279 IN LINE 4 OF global_data.h: 'PARK_MODE': multiple initialization
    2          
    3          UINT8 main()
    4          {
@@ -27,6 +16,7 @@ line level    source
    6   1        gsm_ready();
    7   1        while(1);
    8   1      }
+*** WARNING C173 IN LINE 8 OF main.c: missing return-expression
    9          
   10          extern void gsm_ready(void)
   11          {
@@ -58,4 +48,16 @@ line level    source
   37   1        timer_on_off = 1;
   38   1      }
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  11 ERROR(S)
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     80    ----
+   CONSTANT SIZE    =     32    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

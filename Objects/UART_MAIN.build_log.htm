@@ -25,18 +25,11 @@ Project File Date:  10/18/2020
 Rebuild target 'Target 1'
 assembling STARTUP.A51...
 compiling main.c...
-register_names.h(1): error C231: 'uart_reg': redefinition
-register_names.h(2): error C231: 'buffer': redefinition
-register_names.h(3): error C231: 'timer_reg': redefinition
-register_names.h(4): error C231: 'timer_data_reg': redefinition
-register_names.h(5): error C231: 'timer_on_off': redefinition
-register_names.h(6): error C231: 'transmit_interrupt_uart': redefinition
-register_names.h(7): error C231: 'receive_interrupt_uart': redefinition
-global_data.h(1): error C279: 'commands': multiple initialization
-global_data.h(2): error C279: 'ENTER': multiple initialization
-global_data.h(3): error C279: 'DATA_SEND': multiple initialization
-global_data.h(4): error C279: 'PARK_MODE': multiple initialization
-Target not created.
+main.c(8): warning C173: missing return-expression
+linking...
+Program Size: data=23.0 xdata=0 code=367
+creating hex file from ".\Objects\UART_MAIN"...
+".\Objects\UART_MAIN" - 0 Error(s), 1 Warning(s).
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
