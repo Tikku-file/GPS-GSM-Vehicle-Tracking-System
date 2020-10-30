@@ -1,13 +1,13 @@
 
 #include"headerfiles.h"
 
-UINT8 main()
+void main()
 {
-	lcd_init();
+	//lcd_init();
 	IE = 0x90;
 	green = 0;
 	red = 0;
-	LCD=0x00;
+	//LCD=0x00;
 P1=0;
 	uart_init();
 	gsm_ready();
@@ -20,7 +20,7 @@ P1=0;
 		wait();
   	compare();
 	while(1);
-	return 0;
+	//return 0;
 }
 
 extern void gsm_ready(void)
@@ -106,7 +106,7 @@ void receive_response(void)  interrupt 4
 void compare(void)
 {
 	P1 = x;
-		lcd_disp(x);
+		//lcd_disp(x);
 /*	OK_FLAG = FALSE;
 	if (response[1]=='A')
 	{

@@ -1,7 +1,7 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              10/25/2020 18:32:30 PAGE 1   
+C51 COMPILER V9.56.0.0   MAIN                                                              10/30/2020 17:16:25 PAGE 1   
 
 
-C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
                     -.lst) TABS(2) OBJECT(.\Objects\main.obj)
@@ -11,13 +11,13 @@ line level    source
    1          
    2          #include"headerfiles.h"
    3          
-   4          UINT8 main()
+   4          void main()
    5          {
-   6   1        lcd_init();
+   6   1        //lcd_init();
    7   1        IE = 0x90;
    8   1        green = 0;
    9   1        red = 0;
-  10   1        LCD=0x00;
+  10   1        //LCD=0x00;
   11   1      P1=0;
   12   1        uart_init();
   13   1        gsm_ready();
@@ -30,7 +30,7 @@ line level    source
   20   1          wait();
   21   1          compare();
   22   1        while(1);
-  23   1        return 0;
+  23   1        //return 0;
   24   1      }
   25          
   26          extern void gsm_ready(void)
@@ -62,7 +62,7 @@ line level    source
   52   1        while(!transmit_interrupt_uart);
   53   1        transmit_interrupt_uart = 0;
   54   1      }
-C51 COMPILER V9.59.0.0   MAIN                                                              10/25/2020 18:32:30 PAGE 2   
+C51 COMPILER V9.56.0.0   MAIN                                                              10/30/2020 17:16:25 PAGE 2   
 
   55          
   56          void uart_init(void)
@@ -118,7 +118,7 @@ line level    source
  106          void compare(void)
  107          {
  108   1        P1 = x;
- 109   1          lcd_disp(x);
+ 109   1          //lcd_disp(x);
  110   1      /*  OK_FLAG = FALSE;
  111   1        if (response[1]=='A')
  112   1        {
@@ -126,7 +126,7 @@ line level    source
  114   1        }
  115   1        else
  116   1        {
-C51 COMPILER V9.59.0.0   MAIN                                                              10/25/2020 18:32:30 PAGE 3   
+C51 COMPILER V9.56.0.0   MAIN                                                              10/30/2020 17:16:25 PAGE 3   
 
  117   1          OK_FLAG = FALSE;
  118   1        }
@@ -141,18 +141,17 @@ line level    source
  127   1            green = FALSE;
  128   1          }*/
  129   1      }
-*** WARNING C294 IN LINE 23 OF main.c: unreachable code
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    523    ----
+   CODE SIZE        =    255    ----
    CONSTANT SIZE    =     30    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     41       3
+   DATA SIZE        =     41       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

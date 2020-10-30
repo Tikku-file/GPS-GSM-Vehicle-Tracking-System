@@ -4,4 +4,4 @@
 #include"register_names.h"
 #include"global_data.h"
 #include"function_declarations.h"
-#include "lcdfunc.c"
+//#include "lcdfunc.c"
