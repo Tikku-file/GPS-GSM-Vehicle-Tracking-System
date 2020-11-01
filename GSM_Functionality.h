@@ -1,0 +1,1 @@
+extern void gsm_ready(void);

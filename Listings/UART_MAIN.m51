@@ -1,9 +1,10 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        10/30/2020  17:16:25  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/01/2020  13:55:02  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj TO .\Objects\UART_MAIN PRINT (.\Listings\UART_MAIN
->> .m51)
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\initialization.obj, .\Objects\GSM_Funct
+>> ionality.obj, .\Objects\delay.obj, .\Objects\UART_Functionality.obj, .\Objects\Compare_Response.obj TO .\Objects\UART
+>> _MAIN PRINT (.\Listings\UART_MAIN.m51)
 
 
 MEMORY MODEL: SMALL
@@ -12,6 +13,11 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   .\Objects\STARTUP.obj (?C_STARTUP)
   .\Objects\main.obj (MAIN)
+  .\Objects\initialization.obj (INITIALIZATION)
+  .\Objects\GSM_Functionality.obj (GSM_FUNCTIONALITY)
+  .\Objects\delay.obj (DELAY)
+  .\Objects\UART_Functionality.obj (UART_FUNCTIONALITY)
+  .\Objects\Compare_Response.obj (COMPARE_RESPONSE)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
   C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
@@ -26,9 +32,11 @@ LINK MAP OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0029H     UNIT         ?DT?MAIN
-            DATA    0031H     0002H     UNIT         _DATA_GROUP_
-            IDATA   0033H     0001H     UNIT         ?STACK
+            DATA    0008H     0030H     UNIT         ?DT?INITIALIZATION
+            DATA    0038H     0030H     UNIT         ?DT?GSM_FUNCTIONALITY
+            DATA    0068H     0012H     UNIT         ?DT?DELAY
+            DATA    007AH     0002H     UNIT         _DATA_GROUP_
+            IDATA   007CH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
@@ -36,60 +44,89 @@ LINK MAP OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
             CODE    0023H     0003H     ABSOLUTE     
                     0026H     07DAH                  *** GAP ***
             CODE    0800H     008CH     UNIT         ?C_C51STARTUP
-            CODE    088CH     0061H     UNIT         ?PR?WAIT?MAIN
-            CODE    08EDH     0046H     UNIT         ?C?LIB_CODE
-            CODE    0933H     002AH     UNIT         ?PR?MAIN?MAIN
-            CODE    095DH     0025H     UNIT         ?PR?_SEND?MAIN
-            CODE    0982H     0022H     UNIT         ?PR?RECEIVE_RESPONSE?MAIN
-            CODE    09A4H     001EH     UNIT         ?CO?MAIN
-            CODE    09C2H     0018H     UNIT         ?C_INITSEG
-            CODE    09DAH     0017H     UNIT         ?PR?GSM_READY?MAIN
-            CODE    09F1H     0015H     UNIT         ?PR?_STRLEN?STRLEN
-            CODE    0A06H     000CH     UNIT         ?PR?UART_INIT?MAIN
-            CODE    0A12H     0006H     UNIT         ?PR?UART_TRANSMIT?MAIN
-            CODE    0A18H     0004H     UNIT         ?PR?COMPARE?MAIN
+            CODE    088CH     0083H     UNIT         ?C_INITSEG
+            CODE    090FH     0061H     UNIT         ?PR?DELAY?DELAY
+            CODE    0970H     0046H     UNIT         ?C?LIB_CODE
+            CODE    09B6H     0025H     UNIT         ?PR?_SEND?UART_FUNCTIONALITY
+            CODE    09DBH     0022H     UNIT         ?PR?RECEIVE_RESPONSE?UART_FUNCTIONALITY
+            CODE    09FDH     001FH     UNIT         ?PR?COMPARE?COMPARE_RESPONSE
+            CODE    0A1CH     0017H     UNIT         ?PR?GSM_READY?GSM_FUNCTIONALITY
+            CODE    0A33H     0015H     UNIT         ?PR?INIT?INITIALIZATION
+            CODE    0A48H     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    0A5DH     000CH     UNIT         ?PR?UART_INIT?UART_FUNCTIONALITY
+            CODE    0A69H     0006H     UNIT         ?CO?INITIALIZATION
+            CODE    0A6FH     0006H     UNIT         ?CO?GSM_FUNCTIONALITY
+            CODE    0A75H     0006H     UNIT         ?CO?DELAY
+            CODE    0A7BH     0006H     UNIT         ?PR?UART_TRANSMIT?UART_FUNCTIONALITY
+            CODE    0A81H     0006H     UNIT         ?CO?UART_FUNCTIONALITY
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2020  13:55:02  PAGE 2
+
+
+            CODE    0A87H     0006H     UNIT         ?CO?COMPARE_RESPONSE
+            CODE    0A8DH     0005H     UNIT         ?PR?MAIN?MAIN
 
 
 
 OVERLAY MAP OF MODULE:   .\Objects\UART_MAIN (?C_STARTUP)
 
 
-SEGMENT                             DATA_GROUP 
-  +--> CALLED SEGMENT             START    LENGTH
--------------------------------------------------
-?C_C51STARTUP                     -----    -----
+SEGMENT                                           DATA_GROUP 
+  +--> CALLED SEGMENT                           START    LENGTH
+---------------------------------------------------------------
+?C_C51STARTUP                                   -----    -----
   +--> ?PR?MAIN?MAIN
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/30/2020  17:16:25  PAGE 2
-
-
   +--> ?C_INITSEG
 
-?PR?MAIN?MAIN                     -----    -----
-  +--> ?PR?UART_INIT?MAIN
-  +--> ?PR?GSM_READY?MAIN
-  +--> ?PR?WAIT?MAIN
-  +--> ?PR?COMPARE?MAIN
+?PR?MAIN?MAIN                                   -----    -----
+  +--> ?PR?INIT?INITIALIZATION
 
-?PR?GSM_READY?MAIN                -----    -----
+?PR?INIT?INITIALIZATION                         -----    -----
+  +--> ?PR?UART_INIT?UART_FUNCTIONALITY
+  +--> ?PR?GSM_READY?GSM_FUNCTIONALITY
+  +--> ?PR?COMPARE?COMPARE_RESPONSE
+
+?PR?GSM_READY?GSM_FUNCTIONALITY                 -----    -----
   +--> ?PR?_STRLEN?STRLEN
-  +--> ?PR?_SEND?MAIN
+  +--> ?PR?_SEND?UART_FUNCTIONALITY
 
-?PR?_SEND?MAIN                    0031H    0002H
-  +--> ?PR?UART_TRANSMIT?MAIN
+?PR?_SEND?UART_FUNCTIONALITY                    007AH    0002H
+  +--> ?PR?UART_TRANSMIT?UART_FUNCTIONALITY
 
-?C_INITSEG                        -----    -----
-  +--> ?CO?MAIN
+?C_INITSEG                                      -----    -----
+  +--> ?CO?INITIALIZATION
+  +--> ?CO?GSM_FUNCTIONALITY
+  +--> ?CO?DELAY
+  +--> ?CO?UART_FUNCTIONALITY
+  +--> ?CO?COMPARE_RESPONSE
+
+
+
+IGNORED SEGMENTS:
+   ?DT?UART_FUNCTIONALITY
+   ?DT?COMPARE_RESPONSE
+
+
+
+IGNORED SYMBOLS:
+   COMMANDS
+   OK_FLAG
+   PARK_MODE
+   RESPONSE
+   X
 
 
 
 SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
 
   VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2020  13:55:02  PAGE 3
+
+
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
   C:0800H         SEGMENT       ?C_C51STARTUP
-  I:0033H         SEGMENT       ?STACK
+  I:007CH         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
@@ -119,163 +156,357 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
   C:0804H         LINE#         136
   C:0806H         LINE#         185
   C:0809H         LINE#         196
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/30/2020  17:16:25  PAGE 3
-
-
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
-  D:0008H         PUBLIC        ENTER
-  B:0088H.6       PUBLIC        timer_on_off
   D:0090H         PUBLIC        P1
-  D:00B0H         PUBLIC        P3
-  B:00A8H.7       PUBLIC        EA
-  D:00A8H         PUBLIC        IE
-  B:0090H.0       PUBLIC        green
-  D:0009H         PUBLIC        OK_FLAG
-  C:0A12H         PUBLIC        uart_transmit
-  B:0098H.0       PUBLIC        RI
-  C:0933H         PUBLIC        main
-  D:000AH         PUBLIC        DATA_SEND
-  C:095DH         PUBLIC        _send
-  D:000BH         PUBLIC        PARK_MODE
-  C:088CH         PUBLIC        wait
-  B:0090H.1       PUBLIC        red
-  C:0982H         PUBLIC        receive_response
-  C:09DAH         PUBLIC        gsm_ready
-  D:008DH         PUBLIC        timer_data_reg
-  D:0089H         PUBLIC        timer_reg
-  C:0A06H         PUBLIC        uart_init
-  D:000CH         PUBLIC        commands
-  D:0098H         PUBLIC        uart_reg
-  C:0A18H         PUBLIC        compare
-  B:0098H.1       PUBLIC        transmit_interrupt_uart
-  D:0012H         PUBLIC        response
-  D:0030H         PUBLIC        x
-  D:0099H         PUBLIC        buffer
+  C:0A8DH         PUBLIC        main
   -------         PROC          MAIN
-  C:0933H         LINE#         4
-  C:0933H         LINE#         5
-  C:0933H         LINE#         7
-  C:0936H         LINE#         8
-  C:0938H         LINE#         9
-  C:093AH         LINE#         11
-  C:093DH         LINE#         12
-  C:0940H         LINE#         13
-  C:0943H         LINE#         14
-  C:0946H         LINE#         15
-  C:0949H         LINE#         16
-  C:094CH         LINE#         17
-  C:094FH         LINE#         18
-  C:0952H         LINE#         19
-  C:0955H         LINE#         20
-  C:0958H         LINE#         21
-  C:095BH         LINE#         22
+  C:0A8DH         LINE#         2
+  C:0A8DH         LINE#         3
+  C:0A8DH         LINE#         4
+  C:0A90H         LINE#         5
   -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        INITIALIZATION
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.0       PUBLIC        green
+  D:0008H         PUBLIC        OK_FLAG
+  D:0009H         PUBLIC        PARK_MODE
+  C:0A33H         PUBLIC        init
+  B:0090H.1       PUBLIC        red
+  D:00B8H         PUBLIC        interrupt_enable
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2020  13:55:02  PAGE 4
+
+
+  D:000AH         PUBLIC        commands
+  D:0019H         PUBLIC        response
+  D:0037H         PUBLIC        x
+  -------         PROC          INIT
+  C:0A33H         LINE#         5
+  C:0A33H         LINE#         6
+  C:0A33H         LINE#         7
+  C:0A36H         LINE#         8
+  C:0A38H         LINE#         9
+  C:0A3AH         LINE#         10
+  C:0A3DH         LINE#         11
+  C:0A40H         LINE#         12
+  C:0A43H         LINE#         13
+  C:0A46H         LINE#         14
+  -------         ENDPROC       INIT
+  -------         ENDMOD        INITIALIZATION
+
+  -------         MODULE        GSM_FUNCTIONALITY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:0038H         PUBLIC        OK_FLAG
+  D:0039H         PUBLIC        PARK_MODE
+  C:0A1CH         PUBLIC        gsm_ready
+  D:003AH         PUBLIC        commands
+  D:0049H         PUBLIC        response
+  D:0067H         PUBLIC        x
   -------         PROC          GSM_READY
   -------         DO            
   D:0007H         SYMBOL        i
   -------         ENDDO         
-  C:09DAH         LINE#         26
-  C:09DAH         LINE#         27
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/30/2020  17:16:25  PAGE 4
-
-
-  C:09DAH         LINE#         28
-  C:09DCH         LINE#         30
+  C:0A1CH         LINE#         4
+  C:0A1CH         LINE#         5
+  C:0A1CH         LINE#         6
+  C:0A1EH         LINE#         7
   -------         ENDPROC       GSM_READY
-  -------         PROC          _SEND
-  D:0031H         SYMBOL        string_length
-  -------         DO            
-  D:0032H         SYMBOL        i
-  -------         ENDDO         
-  C:095DH         LINE#         33
-  C:095FH         LINE#         34
-  C:095FH         LINE#         38
-  C:0969H         LINE#         39
-  C:0969H         LINE#         40
-  C:097AH         LINE#         42
-  C:097DH         LINE#         43
-  C:0981H         LINE#         49
-  -------         ENDPROC       _SEND
-  -------         PROC          UART_TRANSMIT
-  C:0A12H         LINE#         50
-  C:0A12H         LINE#         51
-  C:0A12H         LINE#         52
-  C:0A15H         LINE#         53
-  C:0A17H         LINE#         54
-  -------         ENDPROC       UART_TRANSMIT
-  -------         PROC          UART_INIT
-  C:0A06H         LINE#         56
-  C:0A06H         LINE#         57
-  C:0A06H         LINE#         58
-  C:0A09H         LINE#         59
-  C:0A0CH         LINE#         60
-  C:0A0FH         LINE#         61
-  C:0A11H         LINE#         62
-  -------         ENDPROC       UART_INIT
-  -------         PROC          WAIT
+  -------         ENDMOD        GSM_FUNCTIONALITY
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:090FH         PUBLIC        delay
+  D:0068H         PUBLIC        OK_FLAG
+  D:0069H         PUBLIC        PARK_MODE
+  D:006AH         PUBLIC        commands
+  D:0079H         PUBLIC        x
+  -------         PROC          DELAY
   -------         DO            
   D:0007H         SYMBOL        i
   -------         ENDDO         
-  C:088CH         LINE#         72
-  C:088CH         LINE#         73
-  C:088CH         LINE#         75
-  C:0892H         LINE#         76
-  C:0898H         LINE#         77
-  C:089EH         LINE#         78
-  C:08A4H         LINE#         79
-  C:08AAH         LINE#         80
-  C:08B0H         LINE#         81
-  C:08B6H         LINE#         82
-  C:08BCH         LINE#         83
-  C:08C2H         LINE#         84
-  C:08C8H         LINE#         85
-  C:08CEH         LINE#         86
-  C:08D4H         LINE#         87
-  C:08DAH         LINE#         88
-  C:08E0H         LINE#         89
-  C:08E6H         LINE#         90
-  C:08ECH         LINE#         91
-  -------         ENDPROC       WAIT
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/30/2020  17:16:25  PAGE 5
+  C:090FH         LINE#         3
+  C:090FH         LINE#         4
+  C:090FH         LINE#         6
+  C:0915H         LINE#         7
+  C:091BH         LINE#         8
+  C:0921H         LINE#         9
+  C:0927H         LINE#         10
+  C:092DH         LINE#         11
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2020  13:55:02  PAGE 5
 
 
+  C:0933H         LINE#         12
+  C:0939H         LINE#         13
+  C:093FH         LINE#         14
+  C:0945H         LINE#         15
+  C:094BH         LINE#         16
+  C:0951H         LINE#         17
+  C:0957H         LINE#         18
+  C:095DH         LINE#         19
+  C:0963H         LINE#         20
+  C:0969H         LINE#         21
+  C:096FH         LINE#         22
+  -------         ENDPROC       DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        UART_FUNCTIONALITY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0088H.6       PUBLIC        timer_on_off
+  D:0090H         PUBLIC        P1
+  B:00A8H.7       PUBLIC        EA
+  D:0000H         PUBLIC        OK_FLAG
+  C:0A7BH         PUBLIC        uart_transmit
+  B:0098H.0       PUBLIC        RI
+  C:09B6H         PUBLIC        _send
+  D:0001H         PUBLIC        PARK_MODE
+  C:09DBH         PUBLIC        receive_response
+  D:008DH         PUBLIC        timer_data_reg
+  D:0089H         PUBLIC        timer_reg
+  C:0A5DH         PUBLIC        uart_init
+  D:0002H         PUBLIC        commands
+  D:0098H         PUBLIC        uart_reg
+  B:0098H.1       PUBLIC        transmit_interrupt_uart
+  D:0011H         PUBLIC        response
+  D:002FH         PUBLIC        x
+  D:0099H         PUBLIC        buffer
+  -------         PROC          _SEND
+  D:007AH         SYMBOL        string_length
+  -------         DO            
+  D:007BH         SYMBOL        i
+  -------         ENDDO         
+  C:09B6H         LINE#         4
+  C:09B8H         LINE#         5
+  C:09B8H         LINE#         7
+  C:09C2H         LINE#         8
+  C:09C2H         LINE#         9
+  C:09D3H         LINE#         11
+  C:09D6H         LINE#         12
+  C:09DAH         LINE#         13
+  -------         ENDPROC       _SEND
+  -------         PROC          UART_TRANSMIT
+  C:0A7BH         LINE#         14
+  C:0A7BH         LINE#         15
+  C:0A7BH         LINE#         16
+  C:0A7EH         LINE#         17
+  C:0A80H         LINE#         18
+  -------         ENDPROC       UART_TRANSMIT
+  -------         PROC          UART_INIT
+  C:0A5DH         LINE#         20
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2020  13:55:02  PAGE 6
+
+
+  C:0A5DH         LINE#         21
+  C:0A5DH         LINE#         22
+  C:0A60H         LINE#         23
+  C:0A63H         LINE#         24
+  C:0A66H         LINE#         25
+  C:0A68H         LINE#         26
+  -------         ENDPROC       UART_INIT
   -------         PROC          RECEIVE_RESPONSE
-  C:0982H         LINE#         92
-  C:098BH         LINE#         95
-  C:098EH         LINE#         96
-  C:0990H         LINE#         97
-  C:0997H         LINE#         98
-  C:0999H         LINE#         99
-  C:099BH         LINE#         100
-  C:099DH         LINE#         101
-  C:099DH         LINE#         104
+  C:09DBH         LINE#         27
+  C:09E4H         LINE#         30
+  C:09E7H         LINE#         31
+  C:09E7H         LINE#         32
+  C:09E9H         LINE#         33
+  C:09F0H         LINE#         34
+  C:09F2H         LINE#         35
+  C:09F4H         LINE#         36
+  C:09F6H         LINE#         37
+  C:09F6H         LINE#         38
   -------         ENDPROC       RECEIVE_RESPONSE
+  -------         ENDMOD        UART_FUNCTIONALITY
+
+  -------         MODULE        COMPARE_RESPONSE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.0       PUBLIC        green
+  D:0000H         PUBLIC        OK_FLAG
+  D:0001H         PUBLIC        PARK_MODE
+  B:0090H.1       PUBLIC        red
+  D:0002H         PUBLIC        commands
+  C:09FDH         PUBLIC        compare
+  D:0011H         PUBLIC        x
   -------         PROC          COMPARE
-  C:0A18H         LINE#         106
-  C:0A18H         LINE#         107
-  C:0A18H         LINE#         108
-  C:0A1BH         LINE#         129
+  C:09FDH         LINE#         3
+  C:09FDH         LINE#         4
+  C:09FDH         LINE#         5
+  C:0A00H         LINE#         6
+  C:0A05H         LINE#         7
+  C:0A05H         LINE#         8
+  C:0A08H         LINE#         9
+  C:0A0AH         LINE#         11
+  C:0A0AH         LINE#         12
+  C:0A0DH         LINE#         13
+  C:0A0DH         LINE#         14
+  C:0A12H         LINE#         15
+  C:0A12H         LINE#         16
+  C:0A14H         LINE#         17
+  C:0A16H         LINE#         18
+  C:0A17H         LINE#         20
+  C:0A17H         LINE#         21
+  C:0A19H         LINE#         22
+  C:0A1BH         LINE#         23
+  C:0A1BH         LINE#         24
   -------         ENDPROC       COMPARE
-  -------         ENDMOD        MAIN
+  -------         ENDMOD        COMPARE_RESPONSE
 
   -------         MODULE        ?C?CLDOPTR
-  C:08EDH         PUBLIC        ?C?CLDOPTR
+  C:0970H         PUBLIC        ?C?CLDOPTR
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2020  13:55:02  PAGE 7
+
+
   -------         ENDMOD        ?C?CLDOPTR
 
   -------         MODULE        STRLEN
-  C:09F1H         PUBLIC        _STRLEN
+  C:0A48H         PUBLIC        _STRLEN
   -------         ENDMOD        STRLEN
 
   -------         MODULE        ?C?CLDPTR
-  C:091AH         PUBLIC        ?C?CLDPTR
+  C:099DH         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
 
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  X
+    MODULE:  .\Objects\GSM_Functionality.obj (GSM_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  RESPONSE
+    MODULE:  .\Objects\GSM_Functionality.obj (GSM_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  COMMANDS
+    MODULE:  .\Objects\GSM_Functionality.obj (GSM_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  PARK_MODE
+    MODULE:  .\Objects\GSM_Functionality.obj (GSM_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  OK_FLAG
+    MODULE:  .\Objects\GSM_Functionality.obj (GSM_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  X
+    MODULE:  .\Objects\delay.obj (DELAY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  COMMANDS
+    MODULE:  .\Objects\delay.obj (DELAY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  PARK_MODE
+    MODULE:  .\Objects\delay.obj (DELAY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  OK_FLAG
+    MODULE:  .\Objects\delay.obj (DELAY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  X
+    MODULE:  .\Objects\UART_Functionality.obj (UART_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  RESPONSE
+    MODULE:  .\Objects\UART_Functionality.obj (UART_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  COMMANDS
+    MODULE:  .\Objects\UART_Functionality.obj (UART_FUNCTIONALITY)
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2020  13:55:02  PAGE 8
+
+
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  PARK_MODE
+    MODULE:  .\Objects\UART_Functionality.obj (UART_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  OK_FLAG
+    MODULE:  .\Objects\UART_Functionality.obj (UART_FUNCTIONALITY)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  X
+    MODULE:  .\Objects\Compare_Response.obj (COMPARE_RESPONSE)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  COMMANDS
+    MODULE:  .\Objects\Compare_Response.obj (COMPARE_RESPONSE)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  PARK_MODE
+    MODULE:  .\Objects\Compare_Response.obj (COMPARE_RESPONSE)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  OK_FLAG
+    MODULE:  .\Objects\Compare_Response.obj (COMPARE_RESPONSE)
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY?DELAY
+
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?UART_FUNCTIONALITY
+    LENGTH:  0030H
+
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?COMPARE_RESPONSE
+    LENGTH:  0012H
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  X
+    SEGMENT: ?DT?UART_FUNCTIONALITY
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  RESPONSE
+    SEGMENT: ?DT?UART_FUNCTIONALITY
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  COMMANDS
+    SEGMENT: ?DT?UART_FUNCTIONALITY
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  PARK_MODE
+    SEGMENT: ?DT?UART_FUNCTIONALITY
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  OK_FLAG
+    SEGMENT: ?DT?UART_FUNCTIONALITY
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2020  13:55:02  PAGE 9
+
+
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  X
+    SEGMENT: ?DT?COMPARE_RESPONSE
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  COMMANDS
+    SEGMENT: ?DT?COMPARE_RESPONSE
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  PARK_MODE
+    SEGMENT: ?DT?COMPARE_RESPONSE
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  OK_FLAG
+    SEGMENT: ?DT?COMPARE_RESPONSE
+
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  RESPONSE
+    MODULE:  .\Objects\Compare_Response.obj (COMPARE_RESPONSE)
+    ADDRESS: 0A01H
+
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0146H BYTE (15%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01BCH BYTE (21%) *
 ******************************************************************************
 
-Program Size: data=52.0 xdata=0 code=546
-LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+Program Size: data=191.0 xdata=0 code=664
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  30 ERROR(S)

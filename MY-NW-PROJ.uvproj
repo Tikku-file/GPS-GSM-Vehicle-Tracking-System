@@ -373,6 +373,61 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>initialization.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\initialization.c</FilePath>
+            </File>
+            <File>
+              <FileName>GSM_Functionality.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GSM_Functionality.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>UART_Functionality.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\UART_Functionality.c</FilePath>
+            </File>
+            <File>
+              <FileName>Compare_Response.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Compare_Response.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>GSM_Functionality.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\GSM_Functionality.h</FilePath>
+            </File>
+            <File>
+              <FileName>initialization.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\initialization.h</FilePath>
+            </File>
+            <File>
+              <FileName>UART_Functionality.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\UART_Functionality.h</FilePath>
+            </File>
+            <File>
+              <FileName>Compare_Response.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Compare_Response.h</FilePath>
+            </File>
+            <File>
+              <FileName>common.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\common.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

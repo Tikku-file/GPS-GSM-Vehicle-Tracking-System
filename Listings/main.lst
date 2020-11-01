@@ -1,4 +1,4 @@
-C51 COMPILER V9.56.0.0   MAIN                                                              10/30/2020 17:16:25 PAGE 1   
+C51 COMPILER V9.56.0.0   MAIN                                                              11/01/2020 13:55:02 PAGE 1   
 
 
 C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
@@ -8,147 +8,20 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE 
 
 line level    source
 
-   1          
-   2          #include"headerfiles.h"
-   3          
-   4          void main()
-   5          {
-   6   1        //lcd_init();
-   7   1        IE = 0x90;
-   8   1        green = 0;
-   9   1        red = 0;
-  10   1        //LCD=0x00;
-  11   1      P1=0;
-  12   1        uart_init();
-  13   1        gsm_ready();
-  14   1        wait();
-  15   1          wait();
-  16   1          wait();
-  17   1          wait();
-  18   1          wait();
-  19   1          wait();
-  20   1          wait();
-  21   1          compare();
-  22   1        while(1);
-  23   1        //return 0;
-  24   1      }
-  25          
-  26          extern void gsm_ready(void)
-  27          {
-  28   1        char i=0;
-  29   1        //for (i=0;i<3;i++)
-  30   1        send(strlen(commands[i]));
-  31   1      }
-  32          
-  33          void send(UINT8 string_length)
-  34          {
-  35   1        UINT8 i;
-  36   1      //  for (j=0;j<3;j++)
-  37   1      //  {
-  38   1        for (i=0;i<string_length;i++)
-  39   1        {
-  40   2          buffer = commands[0][i];
-  41   2          //wait();
-  42   2          uart_transmit();
-  43   2        }
-  44   1        
-  45   1        //wait();
-  46   1        //receive_response();
-  47   1      
-  48   1      //}
-  49   1      }
-  50          void uart_transmit(void)
-  51          {
-  52   1        while(!transmit_interrupt_uart);
-  53   1        transmit_interrupt_uart = 0;
-  54   1      }
-C51 COMPILER V9.56.0.0   MAIN                                                              10/30/2020 17:16:25 PAGE 2   
-
-  55          
-  56          void uart_init(void)
-  57          {
-  58   1        uart_reg = 0x50;
-  59   1        timer_reg = 0x21;
-  60   1        timer_data_reg = -3;
-  61   1        timer_on_off = 1;
-  62   1      }
-  63          /*
-  64          void send_message(char *str)
-  65          {
-  66            INT8 i;
-  67            for (i=0;i<strlen(str);i++)
-  68            buffer = i;
-  69            buffer=ENTER;
-  70          }
-  71          */
-  72          void wait(void)
-  73          {
-  74   1        UINT8 i;
-  75   1        for (i=0;i<254;i++);
-  76   1              for (i=0;i<254;i++);
-  77   1          for (i=0;i<254;i++);
-  78   1              for (i=0;i<254;i++);
-  79   1          for (i=0;i<254;i++);
-  80   1              for (i=0;i<254;i++);
-  81   1          for (i=0;i<254;i++);
-  82   1              for (i=0;i<254;i++);
-  83   1          for (i=0;i<254;i++);
-  84   1              for (i=0;i<254;i++);
-  85   1          for (i=0;i<254;i++);
-  86   1              for (i=0;i<254;i++);
-  87   1          for (i=0;i<254;i++);
-  88   1              for (i=0;i<254;i++);
-  89   1          for (i=0;i<254;i++);
-  90   1              for (i=0;i<254;i++);
-  91   1      }
-  92          void receive_response(void)  interrupt 4
-  93          { 
-  94   1      /* ISR routine to save responses/new message */
-  95   1        if(RI){
-  96   2          EA = 0;
-  97   2          response[x] = buffer; /* copy SBUF(received value) to buffer */
-  98   2          x++;
-  99   2          RI = 0;
- 100   2          EA = 1;
- 101   2        }
- 102   1      
- 103   1        
- 104   1      }
- 105          
- 106          void compare(void)
- 107          {
- 108   1        P1 = x;
- 109   1          //lcd_disp(x);
- 110   1      /*  OK_FLAG = FALSE;
- 111   1        if (response[1]=='A')
- 112   1        {
- 113   1          OK_FLAG = TRUE;
- 114   1        }
- 115   1        else
- 116   1        {
-C51 COMPILER V9.56.0.0   MAIN                                                              10/30/2020 17:16:25 PAGE 3   
-
- 117   1          OK_FLAG = FALSE;
- 118   1        }
- 119   1          if (OK_FLAG==TRUE)
- 120   1          {
- 121   1            green = TRUE;
- 122   1            red = FALSE;
- 123   1          }
- 124   1          else
- 125   1          {
- 126   1            red = TRUE;
- 127   1            green = FALSE;
- 128   1          }*/
- 129   1      }
+   1          #include"common.h"
+   2          void main()
+   3          {
+   4   1        init();
+   5   1        while(1);
+   6   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    255    ----
-   CONSTANT SIZE    =     30    ----
+   CODE SIZE        =      5    ----
+   CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     41       2
+   DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

@@ -1,4 +1,9 @@
 ".\Objects\STARTUP.obj",
-".\Objects\main.obj" 
+".\Objects\main.obj",
+".\Objects\initialization.obj",
+".\Objects\GSM_Functionality.obj",
+".\Objects\delay.obj",
+".\Objects\UART_Functionality.obj",
+".\Objects\Compare_Response.obj" 
 TO ".\Objects\UART_MAIN" 
 PRINT(".\Listings\UART_MAIN.m51")

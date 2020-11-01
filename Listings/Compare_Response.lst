@@ -1,0 +1,48 @@
+C51 COMPILER V9.56.0.0   COMPARE_RESPONSE                                                  11/01/2020 13:55:02 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE COMPARE_RESPONSE
+OBJECT MODULE PLACED IN .\Objects\Compare_Response.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Compare_Response.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\Compare_Response.lst) TABS(2) OBJECT(.\Objects\Compare_Response.obj)
+
+line level    source
+
+   1          #include"common.h"
+   2          #include"global_data.h"
+   3          extern void compare(void)
+   4          {
+   5   1        OK_FLAG = FALSE;
+   6   1        if (response[1]=='A')
+   7   1        {
+   8   2          OK_FLAG = TRUE;
+   9   2        }
+  10   1        else
+  11   1        {
+  12   2          OK_FLAG = FALSE;
+  13   2        }
+  14   1          if (OK_FLAG==TRUE)
+  15   1          {
+  16   2            green = TRUE;
+  17   2            red = FALSE;
+  18   2          }
+  19   1          else
+  20   1          {
+  21   2            red = TRUE;
+  22   2            green = FALSE;
+  23   2          }
+  24   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     31    ----
+   CONSTANT SIZE    =      6    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

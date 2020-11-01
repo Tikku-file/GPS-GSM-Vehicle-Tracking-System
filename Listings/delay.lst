@@ -1,0 +1,46 @@
+C51 COMPILER V9.56.0.0   DELAY                                                             11/01/2020 13:55:02 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\Objects\delay.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE delay.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\del
+                    -ay.lst) TABS(2) OBJECT(.\Objects\delay.obj)
+
+line level    source
+
+   1          #include"common.h"
+   2          #include"global_data.h"
+   3          extern void delay(void)
+   4          {
+   5   1        UINT8 i;
+   6   1        for (i=0;i<254;i++);
+   7   1              for (i=0;i<254;i++);
+   8   1          for (i=0;i<254;i++);
+   9   1              for (i=0;i<254;i++);
+  10   1          for (i=0;i<254;i++);
+  11   1              for (i=0;i<254;i++);
+  12   1          for (i=0;i<254;i++);
+  13   1              for (i=0;i<254;i++);
+  14   1          for (i=0;i<254;i++);
+  15   1              for (i=0;i<254;i++);
+  16   1          for (i=0;i<254;i++);
+  17   1              for (i=0;i<254;i++);
+  18   1          for (i=0;i<254;i++);
+  19   1              for (i=0;i<254;i++);
+  20   1          for (i=0;i<254;i++);
+  21   1              for (i=0;i<254;i++);
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     97    ----
+   CONSTANT SIZE    =      6    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
