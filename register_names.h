@@ -1,3 +1,6 @@
+#ifndef __REGISTERS__
+#define __REGISTERS__ 1
+
 sfr uart_reg = 0x0098;
 sfr buffer = 0x0099;
 sfr timer_reg = 0x0089;
@@ -13,3 +16,5 @@ sbit red = P1^1;
 sbit rs = P3^5;
 sbit rw = P3^6;
 sbit en = P3^7;
+
+#endif
