@@ -1,9 +1,9 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        11/02/2020  17:12:50  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/02/2020  17:17:17  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\initialization.obj, .\Objects\UART_Func
->> tionality.obj, .\Objects\GSM_Functionality.obj, .\Objects\delay.obj, .\Objects\Compare_Response.obj TO .\Objects\UART
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\Compare_Response.obj, .\Objects\delay.o
+>> bj, .\Objects\GSM_Functionality.obj, .\Objects\initialization.obj, .\Objects\UART_Functionality.obj TO .\Objects\UART
 >> _MAIN PRINT (.\Listings\UART_MAIN.m51)
 
 
@@ -13,11 +13,11 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   .\Objects\STARTUP.obj (?C_STARTUP)
   .\Objects\main.obj (MAIN)
+  .\Objects\Compare_Response.obj (COMPARE_RESPONSE)
+  .\Objects\delay.obj (DELAY)
+  .\Objects\GSM_Functionality.obj (GSM_FUNCTIONALITY)
   .\Objects\initialization.obj (INITIALIZATION)
   .\Objects\UART_Functionality.obj (UART_FUNCTIONALITY)
-  .\Objects\GSM_Functionality.obj (GSM_FUNCTIONALITY)
-  .\Objects\delay.obj (DELAY)
-  .\Objects\Compare_Response.obj (COMPARE_RESPONSE)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
   C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
 
 
 OVERLAY MAP OF MODULE:   .\Objects\UART_MAIN (?C_STARTUP)
-BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:12:50  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:17:17  PAGE 2
 
 
 
@@ -69,7 +69,6 @@ SEGMENT                                           DATA_GROUP
 ---------------------------------------------------------------
 ?C_C51STARTUP                                   -----    -----
   +--> ?PR?MAIN?MAIN
-  +--> ?C_INITSEG
 
 ?PR?MAIN?MAIN                                   -----    -----
   +--> ?PR?INIT?INITIALIZATION
@@ -86,9 +85,6 @@ SEGMENT                                           DATA_GROUP
 
 ?PR?_SEND?UART_FUNCTIONALITY                    0031H    0002H
   +--> ?PR?UART_TRANSMIT?UART_FUNCTIONALITY
-
-?C_INITSEG                                      -----    -----
-  +--> ?CO?MAIN
 
 
 
@@ -119,13 +115,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
   D:0081H         SYMBOL        SP
   C:0800H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
-BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:12:50  PAGE 3
-
-
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:17:17  PAGE 3
+
+
   C:0800H         LINE#         133
   C:0802H         LINE#         134
   C:0803H         LINE#         135
@@ -154,6 +150,87 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
+  -------         MODULE        COMPARE_RESPONSE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:0090H.0       PUBLIC        green
+  B:0090H.1       PUBLIC        red
+  C:09A2H         PUBLIC        compare
+  -------         PROC          COMPARE
+  C:09A2H         LINE#         2
+  C:09A2H         LINE#         3
+  C:09A2H         LINE#         4
+  C:09A5H         LINE#         5
+  C:09AAH         LINE#         6
+  C:09AAH         LINE#         7
+  C:09ADH         LINE#         8
+  C:09AFH         LINE#         10
+  C:09AFH         LINE#         11
+  C:09B2H         LINE#         12
+  C:09B2H         LINE#         13
+  C:09B7H         LINE#         14
+  C:09B7H         LINE#         15
+  C:09B9H         LINE#         16
+  C:09BBH         LINE#         17
+  C:09BCH         LINE#         19
+  C:09BCH         LINE#         20
+  C:09BEH         LINE#         21
+  C:09C0H         LINE#         22
+  C:09C0H         LINE#         23
+  -------         ENDPROC       COMPARE
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:17:17  PAGE 4
+
+
+  -------         ENDMOD        COMPARE_RESPONSE
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  C:088CH         PUBLIC        delay
+  -------         PROC          DELAY
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:088CH         LINE#         2
+  C:088CH         LINE#         3
+  C:088CH         LINE#         5
+  C:0892H         LINE#         6
+  C:0898H         LINE#         7
+  C:089EH         LINE#         8
+  C:08A4H         LINE#         9
+  C:08AAH         LINE#         10
+  C:08B0H         LINE#         11
+  C:08B6H         LINE#         12
+  C:08BCH         LINE#         13
+  C:08C2H         LINE#         14
+  C:08C8H         LINE#         15
+  C:08CEH         LINE#         16
+  C:08D4H         LINE#         17
+  C:08DAH         LINE#         18
+  C:08E0H         LINE#         19
+  C:08E6H         LINE#         20
+  C:08ECH         LINE#         21
+  -------         ENDPROC       DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        GSM_FUNCTIONALITY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  C:09F7H         PUBLIC        gsm_ready
+  -------         PROC          GSM_READY
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:09F7H         LINE#         2
+  C:09F7H         LINE#         3
+  C:09F7H         LINE#         4
+  C:09F9H         LINE#         5
+  -------         ENDPROC       GSM_READY
+  -------         ENDMOD        GSM_FUNCTIONALITY
+
   -------         MODULE        INITIALIZATION
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
@@ -162,6 +239,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
   B:0090H.0       PUBLIC        green
   C:0933H         PUBLIC        init
   B:0090H.1       PUBLIC        red
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:17:17  PAGE 5
+
+
   -------         PROC          INIT
   C:0933H         LINE#         2
   C:0933H         LINE#         3
@@ -179,9 +259,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
   C:0952H         LINE#         15
   C:0955H         LINE#         16
   C:0958H         LINE#         17
-BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:12:50  PAGE 4
-
-
   -------         ENDPROC       INIT
   -------         ENDMOD        INITIALIZATION
 
@@ -222,6 +299,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
   C:0A32H         LINE#         16
   C:0A34H         LINE#         17
   -------         ENDPROC       UART_TRANSMIT
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:17:17  PAGE 6
+
+
   -------         PROC          UART_INIT
   C:0A23H         LINE#         19
   C:0A23H         LINE#         20
@@ -239,94 +319,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
   C:0995H         LINE#         32
   C:0997H         LINE#         33
   C:0999H         LINE#         34
-BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:12:50  PAGE 5
-
-
   C:099BH         LINE#         35
   C:099BH         LINE#         38
   -------         ENDPROC       RECEIVE_RESPONSE
   -------         ENDMOD        UART_FUNCTIONALITY
-
-  -------         MODULE        GSM_FUNCTIONALITY
-  C:0000H         SYMBOL        _ICE_DUMMY_
-  D:0090H         PUBLIC        P1
-  D:00B0H         PUBLIC        P3
-  C:09F7H         PUBLIC        gsm_ready
-  -------         PROC          GSM_READY
-  -------         DO            
-  D:0007H         SYMBOL        i
-  -------         ENDDO         
-  C:09F7H         LINE#         2
-  C:09F7H         LINE#         3
-  C:09F7H         LINE#         4
-  C:09F9H         LINE#         5
-  -------         ENDPROC       GSM_READY
-  -------         ENDMOD        GSM_FUNCTIONALITY
-
-  -------         MODULE        DELAY
-  C:0000H         SYMBOL        _ICE_DUMMY_
-  D:0090H         PUBLIC        P1
-  D:00B0H         PUBLIC        P3
-  C:088CH         PUBLIC        delay
-  -------         PROC          DELAY
-  -------         DO            
-  D:0007H         SYMBOL        i
-  -------         ENDDO         
-  C:088CH         LINE#         2
-  C:088CH         LINE#         3
-  C:088CH         LINE#         5
-  C:0892H         LINE#         6
-  C:0898H         LINE#         7
-  C:089EH         LINE#         8
-  C:08A4H         LINE#         9
-  C:08AAH         LINE#         10
-  C:08B0H         LINE#         11
-  C:08B6H         LINE#         12
-  C:08BCH         LINE#         13
-  C:08C2H         LINE#         14
-  C:08C8H         LINE#         15
-  C:08CEH         LINE#         16
-  C:08D4H         LINE#         17
-  C:08DAH         LINE#         18
-  C:08E0H         LINE#         19
-  C:08E6H         LINE#         20
-  C:08ECH         LINE#         21
-  -------         ENDPROC       DELAY
-  -------         ENDMOD        DELAY
-
-  -------         MODULE        COMPARE_RESPONSE
-  C:0000H         SYMBOL        _ICE_DUMMY_
-  D:0090H         PUBLIC        P1
-  D:00B0H         PUBLIC        P3
-  B:0090H.0       PUBLIC        green
-BL51 BANKED LINKER/LOCATER V6.22                                                      11/02/2020  17:12:50  PAGE 6
-
-
-  B:0090H.1       PUBLIC        red
-  C:09A2H         PUBLIC        compare
-  -------         PROC          COMPARE
-  C:09A2H         LINE#         2
-  C:09A2H         LINE#         3
-  C:09A2H         LINE#         4
-  C:09A5H         LINE#         5
-  C:09AAH         LINE#         6
-  C:09AAH         LINE#         7
-  C:09ADH         LINE#         8
-  C:09AFH         LINE#         10
-  C:09AFH         LINE#         11
-  C:09B2H         LINE#         12
-  C:09B2H         LINE#         13
-  C:09B7H         LINE#         14
-  C:09B7H         LINE#         15
-  C:09B9H         LINE#         16
-  C:09BBH         LINE#         17
-  C:09BCH         LINE#         19
-  C:09BCH         LINE#         20
-  C:09BEH         LINE#         21
-  C:09C0H         LINE#         22
-  C:09C0H         LINE#         23
-  -------         ENDPROC       COMPARE
-  -------         ENDMOD        COMPARE_RESPONSE
 
   -------         MODULE        ?C?CLDOPTR
   C:08EDH         PUBLIC        ?C?CLDOPTR
@@ -340,9 +336,12 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART_MAIN (?C_STARTUP)
   C:091AH         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
 
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?C_INITSEG
+
 ******************************************************************************
 * RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0164H BYTE (17%) *
 ******************************************************************************
 
 Program Size: data=52.0 xdata=0 code=576
-LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

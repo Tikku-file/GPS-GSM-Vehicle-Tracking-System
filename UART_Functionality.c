@@ -1,6 +1,5 @@
 #include "common.h"
 
-
 void send(UINT8 string_length)
 {
 	UINT8 i;
