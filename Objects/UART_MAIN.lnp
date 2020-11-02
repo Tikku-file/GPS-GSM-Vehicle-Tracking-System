@@ -1,9 +1,0 @@
-".\Objects\STARTUP.obj",
-".\Objects\main.obj",
-".\Objects\Compare_Response.obj",
-".\Objects\delay.obj",
-".\Objects\GSM_Functionality.obj",
-".\Objects\initialization.obj",
-".\Objects\UART_Functionality.obj" 
-TO ".\Objects\UART_MAIN" 
-PRINT(".\Listings\UART_MAIN.m51")
