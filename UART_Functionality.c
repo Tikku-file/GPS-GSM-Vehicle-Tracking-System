@@ -1,11 +1,11 @@
 #include "common.h"
 
-void send(UINT8 string_length,UINT8 number)
+void send(UINT8 string_length)
 {
 	UINT8 i;
 	for (i=0;i<string_length;i++)
 	{
-    buffer = commands[number][i];
+    buffer = commands[0][i];
 	  uart_transmit();
 	}
 }
@@ -27,9 +27,11 @@ void receive_response(void)  interrupt 4
 /* ISR routine to save responses/new message */
 	if(RI){
 		EA = 0;
-		response_temp[x] = buffer;	/* copy SBUF(received value) to buffer */
+		response[x] = buffer;	/* copy SBUF(received value) to buffer */
 		x++;
 		RI = 0;
 		EA = 1;
 	}
+
+	
 }

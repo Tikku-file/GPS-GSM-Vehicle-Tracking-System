@@ -5,7 +5,14 @@ void init(void)
 	green = 0;
 	red = 0;
   P1=0;
-	receive_response();
 	uart_init();
 	gsm_ready();
+	delay();
+  delay();
+  delay();
+  delay();
+  delay();
+  delay();
+  delay();
+	compare();
 }
